@@ -1,16 +1,9 @@
-***********************************************
-*  Econ 484, Wage Process Estimation
-*  Data preparation for analysis
-***********************************************
-
 clear all
-* create a directory and install several programs
 cap ssc install blindschemes
 cap ssc install estout
 cap ssc install binscatter
 set scheme plotplain
 
-* Import the cleaned data
 use "/Users/sahajjhajharia/Downloads/J345213/cleandata.dta", clear
 
 * Rename variables
@@ -253,8 +246,6 @@ gen lnwages = ln(wages)
 
 * Create unique identifier by combining ID and year (numeric format)
 gen unique_id = ID*10000 + year
-
-* Keep only necessary variables for wage process estimation
 keep unique_id ID year wages hours age sex lnwages
 
 * Save the prepared dataset
